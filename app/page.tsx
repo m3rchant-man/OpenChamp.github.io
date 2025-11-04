@@ -34,7 +34,7 @@ export default function Home() {
                   <a href="/">PATCH NOTES*</a>
                 </li>
                 <li>
-                  <a href="/">DEV BLOG*</a>
+                  <a href="/dev_blog">DEV BLOG</a>
                 </li>
               </ul>
             </nav>
