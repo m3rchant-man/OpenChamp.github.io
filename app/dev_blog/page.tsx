@@ -16,7 +16,7 @@ export default function DevBlog() {
               </button>
             </Link>
           </div>
-          <h1 className="text-5xl font-bold mb-2">Dev Blog</h1>
+          <h1 className="text-5xl font-bold mb-2 dev-blog-transition">Dev Blog</h1>
           <p className="text-stone-400">
             Development updates and progress reports
           </p>
