@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { getAllBlogPosts } from "../lib/blog";
 
 export default function DevBlog() {
@@ -16,7 +16,7 @@ export default function DevBlog() {
               </button>
             </Link>
           </div>
-          <h1 className="text-5xl font-bold mb-2">Dev Blog</h1>
+          <h1 className="text-5xl font-bold mb-2 dev-blog-transition">Dev Blog</h1>
           <p className="text-stone-400">
             Development updates and progress reports
           </p>
@@ -33,9 +33,15 @@ export default function DevBlog() {
           ) : (
             posts.map((post) => (
               <Link key={post.id} href={`/dev_blog/${post.id}`}>
-                <article className="group p-6 bg-stone-900 border border-stone-800 rounded-lg hover:border-cyan-700 hover:shadow-lg hover:shadow-cyan-900/20 transition-all cursor-pointer">
+                <article
+                  className="group p-6 bg-stone-900 border border-stone-800 rounded-lg hover:border-cyan-700 hover:shadow-lg hover:shadow-cyan-900/20 transition-all cursor-pointer"
+                  style={{ viewTransitionName: `post-card-${post.id}` }}
+                >
                   <div className="flex justify-between items-start mb-2">
-                    <h2 className="text-2xl font-bold group-hover:text-cyan-400 transition-colors">
+                    <h2
+                      className="text-2xl font-bold group-hover:text-cyan-400 transition-colors"
+                      style={{ viewTransitionName: `post-title-${post.id}` }}
+                    >
                       {post.title}
                     </h2>
                     {post.date && (

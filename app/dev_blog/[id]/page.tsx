@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import { getBlogPost, getAllBlogPosts } from "../../lib/blog";
 import ReactMarkdown from "react-markdown";
 import { notFound } from "next/navigation";
@@ -23,18 +23,29 @@ export default function BlogPostPage({ params }: Props) {
     notFound();
   }
 
+  const cardTransitionName = `post-card-${post.id}`;
+  const titleTransitionName = `post-title-${post.id}`;
+
   return (
     <main className="min-h-screen bg-stone-950 text-stone-200">
       {/* Header */}
       <div className="bg-gradient-to-b from-stone-950 to-stone-900 border-b border-stone-800 py-8 px-4">
-        <div className="max-w-4xl mx-auto">
+        <div
+          className="max-w-4xl mx-auto"
+          style={{ viewTransitionName: cardTransitionName }}
+        >
           <Link href="/dev_blog">
             <button className="px-4 py-2 mb-6 bg-stone-800 hover:bg-stone-700 rounded-lg transition-colors">
               ← Back to Blog
             </button>
           </Link>
 
-          <h1 className="text-5xl font-bold mb-2">{post.title}</h1>
+          <h1
+            className="text-5xl font-bold mb-2"
+            style={{ viewTransitionName: titleTransitionName }}
+          >
+            {post.title}
+          </h1>
           {post.date && (
             <time className="text-stone-400">Published: {post.date}</time>
           )}

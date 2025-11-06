@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faHandHoldingDollar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "next-view-transitions";
 
 config.autoAddCss = false; // Tell FontAwesome to skip adding the CSS automatically since it's being imported above
 
@@ -34,7 +35,9 @@ export default function Home() {
                   <a href="/">PATCH NOTES*</a>
                 </li>
                 <li>
-                  <a href="/dev_blog">DEV BLOG</a>
+                  <Link href="/dev_blog" className="dev-blog-transition">
+                    DEV BLOG
+                  </Link>
                 </li>
               </ul>
             </nav>
